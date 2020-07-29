@@ -28,6 +28,8 @@ func main() {
 		pan.POST("/shareqr", controller.ShareWithQRcode)
 		//上传
 		pan.POST("/upload", controller.UploadFile)
+		//上传多文件
+		pan.POST("/uploadmuti", controller.UploadMutiFile)
 		//下载（Basic）
 		pan.GET("/download", controller.Download)
 	}

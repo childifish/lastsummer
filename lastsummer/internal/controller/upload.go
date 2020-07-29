@@ -24,3 +24,22 @@ func UploadFile(ctx *gin.Context) {
 
 	resp.Goodmsg(ctx, "上传成功")
 }
+
+func UploadMutiFile(ctx *gin.Context) {
+	form, err := ctx.MultipartForm()
+	if err != nil {
+		resp.Badmsg(ctx, "上传过程中出现问题")
+		return
+	}
+	files := form.File["file"]
+
+	for _, file := range files {
+		err2 := service.SaveFile(file, ctx)
+		if err2 != nil {
+			resp.Badmsg(ctx, "保存过程中出现问题")
+			return
+		}
+	}
+
+	resp.Goodmsg(ctx, "上传成功")
+}
