@@ -86,7 +86,7 @@ okok,这个`jwt-go`库在拉下来的时候我就有种不详的预感，其他�
 > warning: go env -w GOPROXY=... does not override conflicting OS environment variable
 > ```
 
-不能覆盖OS级别的环境变量，csdn上也没找到点阳间的解决方法，然后卡了很就，不知怎么就go env看了下，发现环境变量里`goproxy = https://goproxy.cn`，喜出望外，觉得马上就脱离苦海了，结果：
+不能覆盖OS级别的环境变量，csdn上也没找到点阳间的解决方法，然后卡了很久，不知怎么就go env看了下，发现环境变量里`goproxy = https://goproxy.cn`，喜出望外，觉得马上就脱离苦海了，结果：
 
 ```go
 go: github.com/dgrijalva/jwt-go@v3.2.0+incompatible: Get "https://proxy.golang.org/github.com/dgrijalva/jwt-go/@v/v3.2.0+incompatible.mod": dial tcp 172.217.27.145:443: connect: connection refused
