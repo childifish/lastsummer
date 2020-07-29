@@ -1,0 +1,13 @@
+JWT:
+  Secret: childifish
+  Issuer: lastsummer
+  Expire: 7200
+
+Server:
+  HttpPort: 8080
+
+Database:
+  DBtype: Mysql
+  Username: root
+  Passsword: LICHEN00
+  Host: 127.0.0.1:3306
