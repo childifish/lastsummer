@@ -35,5 +35,5 @@ func main() {
 	//secdownload := r.Group("/private",controller.)
 	r.GET("/sharelink", controller.ShareDownLoad)
 
-	r.Run(":8080")
+	r.Run(":8012")
 }

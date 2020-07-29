@@ -4,10 +4,13 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/skip2/go-qrcode"
 	"lastsummer/internal/middleware"
 	"lastsummer/internal/model"
 	"lastsummer/resp"
 	"os"
+	"strconv"
+	"time"
 )
 
 func ViewMyFile(ctx *gin.Context) ([]model.File, error) {
@@ -49,4 +52,21 @@ func CheckPrivateFile(ctx *gin.Context, filename string) bool {
 		}
 	}
 	return false
+}
+
+//创建url
+func GetShareLink(filename string) string {
+	//url := "http://118.31.20.31:8080/sharelink?filename=" + filename
+	url := "localhost:8012/sharelink?filename=" + filename
+	return url
+}
+
+//这里用时间戳避免重复
+//可以将时间戳写入表，用来判断链接过期时间
+func GetShareQRcode(filename string) string {
+	//url := "http://118.31.20.31:8080/sharelink?filename=" + filename
+	url := "localhost:8012/sharelink?filename=" + filename
+	pic := "./" + strconv.FormatInt(time.Now().Unix(), 10) + ".png"
+	qrcode.WriteFile(url, qrcode.Medium, 256, pic)
+	return pic
 }
